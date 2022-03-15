@@ -1,6 +1,6 @@
 # t1, t2 and t3 are examples of tasks created by instantiating operators
 t1 = BashOperator(
-    task_id='print_date',
+    task_id='task_pertama',
     bash_command='date',
     dag=dag,
 )
@@ -16,7 +16,7 @@ rendered in the UI's Task Instance Details page.
 dag.doc_md = __doc__
 
 t2 = BashOperator(
-    task_id='sleep',
+    task_id='task_kedua',
     depends_on_past=False,
     bash_command='sleep 5',
     dag=dag,
@@ -31,7 +31,7 @@ templated_command = """
 """
 
 t3 = BashOperator(
-    task_id='templated',
+    task_id='task_ketiga',
     depends_on_past=False,
     bash_command=templated_command,
     params={'my_param': 'Parameter I passed in'},
